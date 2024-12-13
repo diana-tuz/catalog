@@ -1,8 +1,8 @@
-import jsPlugin from '@eslint/js';
-import reactPlugin from 'eslint-plugin-react';
-import reactHooksPlugin from 'eslint-plugin-react-hooks';
-import globals from 'globals';
-import tsPlugin from 'typescript-eslint';
+import jsPlugin from '@eslint/js'
+import reactPlugin from 'eslint-plugin-react'
+import reactHooksPlugin from 'eslint-plugin-react-hooks'
+import globals from 'globals'
+import tsPlugin from 'typescript-eslint'
 
 const eslintConfig = [
   jsPlugin.configs.recommended,
@@ -20,9 +20,9 @@ const eslintConfig = [
   },
   {
     languageOptions: { globals: { ...globals.browser, ...globals.node } },
-    plugins: { 
-      'react': reactPlugin, 
-      'react-hooks': reactHooksPlugin,  
+    plugins: {
+      'react': reactPlugin,
+      'react-hooks': reactHooksPlugin,
     },
   },
   {
@@ -48,6 +48,6 @@ const eslintConfig = [
       'react/self-closing-comp': ['error', { component: true, html: true }],
     },
   },
-];
+]
 
-export default eslintConfig;
+export default eslintConfig

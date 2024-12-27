@@ -19,6 +19,7 @@ const BodyText = styled.p`
 
 const Button = styled(BodyText)`
   font-weight: 600;
+  color: inherit;
 `
 
 const H1 = styled.h1`

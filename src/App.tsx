@@ -10,7 +10,7 @@ export const App = () => (
     <Routes>
       <Route element={<Wrapper />}>
         <Route path={'/'} element={<HomePage />} />
-        <Route path={'/catalog'} element={<CatalogPage />} />
+        <Route path={'/catalog/:category'} element={<CatalogPage />} />
         <Route path={'/cart'} element={<CartPage />} />
         <Route path={'/phone/:id'} element={<ItemCard />} />
         <Route path={'*'} element={<h1>{'404 Page not found'}</h1>} />

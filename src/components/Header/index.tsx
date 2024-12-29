@@ -1,49 +1,47 @@
-import { useState } from 'react'
+import { FC } from 'react'
+
 import { Link, NavLink } from 'react-router-dom'
 import styled from 'styled-components'
+
 import { images } from '../../images'
+
 import { Label } from '../Label'
 
-export const Header = () => {
-  const [displayMenu, setDisplayMenu] = useState(false)
+import { HeaderPropsType } from './types'
 
-  const onCLickBurger = () => setDisplayMenu(!displayMenu)
-
-  return (
+export const Header: FC<HeaderPropsType> = ({
+  onCLickBurger,
+  displayMenu,
+  navigation,
+}) => (
+  <>
     <Wrapper>
       <Left>
         <Logo to={'/'}>
           <Image src={images.logo} />
         </Logo>
         <Nav>
-          <NavItem to={'/'}>
-            <Label variant={'uppercase'}>{'Home'}</Label>
-          </NavItem>
-          <NavItem to={'catalog/phones'}>
-            <Label variant={'uppercase'}>{'Phones'}</Label>
-          </NavItem>
-          <NavItem to={'catalog/tablets'}>
-            <Label variant={'uppercase'}>{'Tablets'}</Label>
-          </NavItem>
-          <NavItem to={'catalog/accessories'}>
-            <Label variant={'uppercase'}>{'Accessories'}</Label>
-          </NavItem>
+          {navigation.map(({ link, name }) => (
+            <NavItem to={link} key={name}>
+              <Label variant={'uppercase'}>{name}</Label>
+            </NavItem>
+          ))}
         </Nav>
       </Left>
       <BurgerMenu onClick={onCLickBurger}>
-        <Icon src={images.menu} />
+        <Icon src={displayMenu ? images.close : images.menu} />
       </BurgerMenu>
       <Buttons>
-        <Favorites to={'/favorites'}>
+        <Button to={'/favorites'}>
           <Icon src={images.favorites} />
-        </Favorites>
-        <Cart to={'/cart'}>
+        </Button>
+        <Button to={'/cart'}>
           <Icon src={images.cart} />
-        </Cart>
+        </Button>
       </Buttons>
     </Wrapper>
-  )
-}
+  </>
+)
 
 const Wrapper = styled.div`
   align-items: center;
@@ -52,6 +50,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   padding-left: 16px;
   width: 100%;
+  position: relative;
 
   @media screen and (min-width: 1199px) {
     padding-left: 24px;
@@ -123,7 +122,7 @@ const Buttons = styled.div`
   }
 `
 
-const Favorites = styled(NavLink)`
+const Button = styled(NavLink)`
   align-items: center;
   aspect-ratio: 1;
   border-left: 1px solid var(--gray);
@@ -131,9 +130,12 @@ const Favorites = styled(NavLink)`
   justify-content: center;
   padding: 16px;
   width: 64px;
-`
 
-const Cart = styled(Favorites)``
+  &.active {
+    border-bottom: 2px solid var(--white);
+    color: var(--secondary);
+  }
+`
 
 const Icon = styled.img`
   aspect-ratio: 1;

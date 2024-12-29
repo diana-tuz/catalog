@@ -12,11 +12,11 @@ const DefaultContainer = styled.div`
   margin: 0 auto;
   padding: 0 16px;
 
-  @media screen and(min-width: 640px) {
+  @media screen and (min-width: 640px) {
     grid-template-columns: repeat(12, 1fr);
     padding: 0 24px;
   }
-  @media screen and(min-width: 1200px) {
+  @media screen and (min-width: 1200px) {
     grid-template-columns: repeat(24, 32px);
   }
 `

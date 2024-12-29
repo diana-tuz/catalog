@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import styled from 'styled-components'
+import { Footer } from '../Footer'
 import { Header } from '../Header'
 import { MenuMobile } from '../MenuMobile'
 
@@ -26,6 +27,20 @@ export const Wrapper = () => {
       link: 'catalog/accessories',
     },
   ]
+  const links = [
+    {
+      name: 'Github',
+      link: 'https://github.com/diana-tuz',
+    },
+    {
+      name: 'Contacts',
+      link: '/contacts',
+    },
+    {
+      name: 'rights',
+      link: '/rights',
+    },
+  ]
 
   return (
     <Container $displayMenu={displayMenu}>
@@ -40,7 +55,7 @@ export const Wrapper = () => {
         )}
         <Outlet />
       </Main>
-      <footer>{'footer'}</footer>
+      <Footer links={links} />
     </Container>
   )
 }
@@ -51,15 +66,10 @@ const Container = styled.div<{ $displayMenu: boolean }>`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-<<<<<<< HEAD
-`
-const Main = styled.main`
-=======
   overflow: ${({ $displayMenu }) => ($displayMenu ? 'hidden' : 'auto')};
   max-height: ${({ $displayMenu }) => ($displayMenu ? '100vh' : 'auto')};
 `
 const Main = styled.main<{ $displayMenu: boolean }>`
   position: relative;
->>>>>>> bdaddb0 (Add MobileMenu)
   flex: 1;
 `

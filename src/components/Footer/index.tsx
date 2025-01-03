@@ -11,29 +11,29 @@ import { Container } from '../Container'
 import { FooterPropsType } from './types'
 
 export const Footer: FC<FooterPropsType> = ({ links }) => (
-    <Wrapper>
-      <Container>
-        <A>
-          <Logo to={'/'}>
-            <Image src={images.logo} />
-          </Logo>
-          <Links>
-            {links.map(({ link, name }) => (
-              <LinkItem to={link} key={name} target={'_blank'}>
-                <Label variant={'uppercase'}>{name}</Label>
-              </LinkItem>
-            ))}
-          </Links>
-          <ArrowUp>
-            <Label variant={'smallText'}>{'Back to top'}</Label>
-            <IconWrapper>
-              <Icon src={images.arrowUp} />
-            </IconWrapper>
-          </ArrowUp>
-        </A>
-      </Container>
-    </Wrapper>
-  )
+  <Wrapper>
+    <Container>
+      <A>
+        <Logo to={'/'}>
+          <Image src={images.logo} />
+        </Logo>
+        <Links>
+          {links.map(({ link, name }) => (
+            <LinkItem to={link} key={name} target={'_blank'}>
+              <Label variant={'uppercase'}>{name}</Label>
+            </LinkItem>
+          ))}
+        </Links>
+        <ArrowUp>
+          <Label variant={'smallText'}>{'Back to top'}</Label>
+          <IconWrapper>
+            <Icon src={images.arrowUp} />
+          </IconWrapper>
+        </ArrowUp>
+      </A>
+    </Container>
+  </Wrapper>
+)
 
 const A = styled.div`
   display: flex;

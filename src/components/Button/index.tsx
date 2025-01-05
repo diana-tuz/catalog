@@ -24,12 +24,12 @@ export const Button: FC<ButtonPropsType> = ({
 const Default = styled.button``
 
 const SmallIcon = styled.button<{ $icon?: string }>`
-  aspect-ratio: 1;
   background-color: var(--arrow-gray);
   background-image: url(${({ $icon }) => $icon});
   background-position: center;
   background-repeat: no-repeat;
   width: 40px;
+  height: 40px;
   border: 1px solid transparent;
 
   &:hover {
@@ -58,7 +58,7 @@ const Prev = styled(SmallIcon)`
 const AddToCart = styled.button`
   background-color: var(--accent);
   color: var(--white);
-  padding: 9px 40px;
+  padding: 9px;
 
   &:hover {
     background-color: var(--accent-lite);
@@ -66,6 +66,10 @@ const AddToCart = styled.button`
 
   &:active {
     background-color: var(--gray);
+  }
+
+  @media screen and (min-width: 639px) {
+    padding: 9px 40px;
   }
 `
 

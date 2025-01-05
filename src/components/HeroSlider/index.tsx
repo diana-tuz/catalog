@@ -24,13 +24,13 @@ export const Hero: FC = () => {
         <SliderContainer>
           <Slider {...settings}>
             <ImageContainer>
-              <Image $image={'./img/banner-accessories.png'} />
+              <Image src={'./img/banner-accessories.png'} />
             </ImageContainer>
             <ImageContainer>
-              <Image $image={'./img/banner-phones.png'} />
+              <Image src={'./img/banner-phones.png'} />
             </ImageContainer>
             <ImageContainer>
-              <Image $image={'./img/banner-tablets.png'} />
+              <Image src={'./img/banner-tablets.png'} />
             </ImageContainer>
           </Slider>
         </SliderContainer>
@@ -58,19 +58,16 @@ const SliderContainer = styled.div`
 
 const ImageContainer = styled.div``
 
-const Image = styled.div<{ $image: string }>`
-  background-size: cover;
-  background-image: url(${({ $image }) => $image});
-  background-position: center;
-  background-repeat: no-repeat;
+const Image = styled.img`
   width: 100%;
-  height: 120px;
+  aspect-ratio: 1;
 
   @media (min-width: 768px) {
-    height: 400px;
+    aspect-ratio: 4.5;
   }
 `
 
 const SliderWrapper = styled.div`
   margin: 0 60px;
+  grid-column: 1/-1;
 `

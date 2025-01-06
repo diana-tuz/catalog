@@ -60,10 +60,10 @@ const ImageContainer = styled.div``
 
 const Image = styled.img`
   width: 100%;
-  aspect-ratio: 1;
+  height: 200px;
 
   @media (min-width: 768px) {
-    aspect-ratio: 4.5;
+    height: 400px;
   }
 `
 

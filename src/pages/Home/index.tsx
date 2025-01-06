@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom'
 
-import { Hero, Label, PreviewBlock } from '../../components'
+import { CategoryBlock, Hero, Label, PreviewBlock } from '../../components'
+import { images } from '../../images'
 
 export const HomePage = () => {
   const phones = [
@@ -2721,6 +2722,26 @@ export const HomePage = () => {
       image: 'img/phones/apple-iphone-14-pro/gold/00.webp',
     },
   ]
+  const categories = [
+    {
+      image: images.phones,
+      category: 'Mobile phones',
+      count: '95',
+      path: 'catalog/phones',
+    },
+    {
+      image: images.tablets,
+      category: 'Tablets',
+      count: '24',
+      path: 'catalog/tablets',
+    },
+    {
+      image: images.accessories,
+      category: 'Accessories',
+      count: '100',
+      path: 'catalog/accessories',
+    },
+  ]
   console.info(phones)
   return (
     <>
@@ -2730,6 +2751,7 @@ export const HomePage = () => {
       <NavLink to={'/phone/1'}>{'phone1'}</NavLink>
       <Hero />
       <PreviewBlock cards={phones} title={'Brand new models'} />
+      <CategoryBlock categories={categories} />
     </>
   )
 }

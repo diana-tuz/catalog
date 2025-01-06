@@ -1,4 +1,6 @@
 export * from './Button'
+export * from './CategoryBlock'
+export * from './CategoryItem'
 export * from './Container'
 export * from './Footer'
 export * from './Header'

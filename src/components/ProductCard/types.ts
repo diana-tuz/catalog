@@ -1,15 +1,16 @@
 export interface ProductCardPropsType {
   addToCart?: () => void
-  id: number
+  capacity: string
   category: string
+  color: string
+  fullPrice: number
+  id: number
+  image: string
+  isHotPrices?: boolean
   itemId: string
   name: string
-  fullPrice: number
   price: number
-  screen: string
-  capacity: string
-  color: string
   ram: string
+  screen: string
   year: number
-  image: string
 }

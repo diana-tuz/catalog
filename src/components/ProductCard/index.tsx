@@ -10,9 +10,10 @@ import { ProductCardPropsType } from './types'
 export const ProductCard: FC<ProductCardPropsType> = ({
   addToCart = () => {},
   capacity,
-  image,
-  name,
   fullPrice,
+  image,
+  isHotPrices,
+  name,
   price,
   ram,
   screen,
@@ -21,13 +22,13 @@ export const ProductCard: FC<ProductCardPropsType> = ({
     <Wrapper>
       <Image alt={`${name}-image`} src={image} />
       <Label variant={'cardTitle'}>{name}</Label>
-      {price ? (
+      {isHotPrices ? (
         <Price>
           <Label variant={'h3'}>{`$${price}`}</Label>
           <Label variant={'h3Price'}>{`$${fullPrice}`}</Label>
         </Price>
       ) : (
-        <Label variant={'h3Price'}>{`$${fullPrice}`}</Label>
+        <Label variant={'h3'}>{`$${fullPrice}`}</Label>
       )}
     </Wrapper>
     <Property>
@@ -66,9 +67,13 @@ const Container = styled.div`
   gap: 8px;
   padding: 32px;
   width: 212px;
+  transition: ease-in 0.5s all;
 
   @media screen and (min-width: 639px) {
     width: 272px;
+  }
+  &:hover {
+    transform: scale(1.05);
   }
 `
 const Image = styled.img`

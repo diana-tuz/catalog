@@ -8,7 +8,11 @@ import { ProductCard } from '../ProductCard'
 import { Container } from '../Container'
 import { PreviewBlockPropsType } from './types'
 
-export const PreviewBlock: FC<PreviewBlockPropsType> = ({ title, cards }) => {
+export const PreviewBlock: FC<PreviewBlockPropsType> = ({
+  title,
+  cards,
+  isHotPrices,
+}) => {
   const [startIndex, setStartIndex] = useState(0)
 
   const [displayCards, setDisplayCards] = useState(4)
@@ -17,8 +21,6 @@ export const PreviewBlock: FC<PreviewBlockPropsType> = ({ title, cards }) => {
     const windowSize = window.screen.width
 
     setDisplayCards(windowSize < 639 ? 2 : 4)
-    console.info('windowSize')
-    console.info({ windowSize })
   }, [])
 
   const currentCards = cards.slice(startIndex, startIndex + displayCards)
@@ -46,7 +48,7 @@ export const PreviewBlock: FC<PreviewBlockPropsType> = ({ title, cards }) => {
       </TopContainer>
       <CardsWrapper>
         {currentCards.map((item, index) => (
-          <ProductCard key={index} {...item} />
+          <ProductCard key={index} {...item} isHotPrices={isHotPrices} />
         ))}
       </CardsWrapper>
     </Container>

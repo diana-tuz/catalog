@@ -1,6 +1,11 @@
-import { NavLink } from 'react-router-dom'
-
-import { CategoryBlock, Hero, Label, PreviewBlock } from '../../components'
+import styled from 'styled-components'
+import {
+  CategoryBlock,
+  Container,
+  Hero,
+  Label,
+  PreviewBlock,
+} from '../../components'
 import { images } from '../../images'
 
 export const HomePage = () => {
@@ -2744,14 +2749,19 @@ export const HomePage = () => {
   ]
   console.info(phones)
   return (
-    <>
-      <Label variant={'h1'}>{'HOME'}</Label>
-      <NavLink to={'/catalog'}>{'catalog'}</NavLink>{' '}
-      <NavLink to={'/cart'}>{'cart'}</NavLink>{' '}
-      <NavLink to={'/phone/1'}>{'phone1'}</NavLink>
+    <Container>
+      <TitleContainer>
+        <Label variant={'h1'}>{'Welcome to Nice Gadgets store!'}</Label>
+      </TitleContainer>
       <Hero />
       <PreviewBlock cards={phones} title={'Brand new models'} />
       <CategoryBlock categories={categories} />
-    </>
+      <PreviewBlock cards={phones} title={'HotPrices'} isHotPrices={true} />
+    </Container>
   )
 }
+
+const TitleContainer = styled.div`
+  grid-column: 1/-1;
+  margin: 40px 0;
+`

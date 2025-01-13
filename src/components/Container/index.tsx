@@ -18,7 +18,7 @@ const DefaultContainer = styled.div<{ $background?: string }>`
   padding: 0 16px;
   background: ${({ $background }) => $background && $background};
   justify-content: center;
-
+  grid-column: 1/-1;
   @media screen and (min-width: 640px) {
     padding: 0 24px;
   }

@@ -23,15 +23,16 @@ export const Button: FC<ButtonPropsType> = ({
 
 const Default = styled.button``
 
-const SmallIcon = styled.button<{ $icon?: string }>`
-  background-color: var(--arrow-gray);
+const SmallIcon = styled.button<{ $icon?: string; isActive?: boolean }>`
+  background-color: ${({ isActive }) =>
+    isActive ? 'var(--accent)' : 'var(--blue-gray)'};
   background-image: url(${({ $icon }) => $icon});
   background-position: center;
   background-repeat: no-repeat;
   width: 40px;
   height: 40px;
   border: 1px solid transparent;
-
+  color: var(--white);
   &:hover {
     background-color: var(--gray);
   }
@@ -49,10 +50,12 @@ const SmallIcon = styled.button<{ $icon?: string }>`
 const Next = styled(SmallIcon)`
   transform: rotate(90deg);
   background-image: url(${images.arrowUp});
+  background-color: var(--arrow-gray);
 `
 const Prev = styled(SmallIcon)`
   transform: rotate(-90deg);
   background-image: url(${images.arrowUp});
+  background-color: var(--arrow-gray);
 `
 
 const AddToCart = styled.button`

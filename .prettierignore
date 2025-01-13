@@ -23,6 +23,8 @@ README.md
 *.yaml
 *.ttf
 *.tmp
+*.webp
+*.jpg
 /tmp
 
 .env*

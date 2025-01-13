@@ -23,9 +23,9 @@ export const Button: FC<ButtonPropsType> = ({
 
 const Default = styled.button``
 
-const SmallIcon = styled.button<{ $icon?: string; isActive?: boolean }>`
-  background-color: ${({ isActive }) =>
-    isActive ? 'var(--accent)' : 'var(--blue-gray)'};
+const SmallIcon = styled.button<{ $icon?: string; selected?: boolean }>`
+  background-color: ${({ selected }) =>
+    selected ? 'var(--accent)' : 'var(--blue-gray)'};
   background-image: url(${({ $icon }) => $icon});
   background-position: center;
   background-repeat: no-repeat;

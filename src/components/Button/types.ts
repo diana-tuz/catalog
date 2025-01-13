@@ -5,7 +5,7 @@ export interface ButtonPropsType
   variant?: ButtonVariantType
   title?: string
   icon?: string
-  isActive?: boolean
+  selected?: boolean
 }
 
 type ButtonVariantType = 'default' | 'smallIcon' | 'addToCart' | 'prev' | 'next'

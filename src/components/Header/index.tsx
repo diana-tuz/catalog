@@ -21,8 +21,8 @@ export const Header: FC<HeaderPropsType> = ({
           <Image src={images.logo} />
         </Logo>
         <Nav>
-          {navigation.map(({ link, name }) => (
-            <NavItem to={link} key={name}>
+          {navigation.map(({ link, name, onClick }) => (
+            <NavItem to={link} key={name} onClick={onClick}>
               <Label variant={'uppercase'}>{name}</Label>
             </NavItem>
           ))}

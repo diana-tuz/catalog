@@ -9,8 +9,9 @@ export const CategoryItem: FC<CategoryItemPropsType> = ({
   category,
   count,
   path,
+  onClick = () => {},
 }) => (
-  <Card>
+  <Card onClick={onClick}>
     <CategoryLink to={path} $image={image} />
     <Label variant={'h4'}>{category}</Label>
     <Label

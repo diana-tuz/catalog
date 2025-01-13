@@ -4,4 +4,8 @@ export interface HeaderPropsType {
   navigation: NavigationItemType[]
 }
 
-export type NavigationItemType = { name: string; link: string }
+export type NavigationItemType = {
+  name: string
+  link: string
+  onClick?: () => void
+}

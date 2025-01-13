@@ -1,11 +1,15 @@
 import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import styled from 'styled-components'
+
+import { useActions } from '../../redux/useActions'
 import { Footer } from '../Footer'
 import { Header } from '../Header'
 import { MenuMobile } from '../MenuMobile'
 
 export const Wrapper = () => {
+  const { setSelectedCategory } = useActions()
+
   const [displayMenu, setDisplayMenu] = useState(false)
 
   const onCLickBurger = () => setDisplayMenu(!displayMenu)
@@ -17,14 +21,17 @@ export const Wrapper = () => {
     {
       name: 'Phones',
       link: 'catalog/phones',
+      onClick: () => setSelectedCategory('phones'),
     },
     {
       name: 'Tablets',
       link: 'catalog/tablets',
+      onClick: () => setSelectedCategory('tablets'),
     },
     {
       name: 'Accessories',
       link: 'catalog/accessories',
+      onClick: () => setSelectedCategory('accessories'),
     },
   ]
   const links = [

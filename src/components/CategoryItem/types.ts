@@ -3,4 +3,5 @@ export interface CategoryItemPropsType {
   category: string
   count: string
   path: string
+  onClick?: () => void
 }
